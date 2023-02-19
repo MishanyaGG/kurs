@@ -6,14 +6,21 @@
 
 @section('main')
 
+
      @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 <li>Некоторые поля были не заполнены</li>
             </ul>
         </div>
-    @endif
+    @else
+         <div class="alert alert-danger">
+            <ul>
+                <li>Неверный логин или пароль</li>
+            </ul>
+        </div>
 
+     @endif
     <!--ФОРМА ЛОГИНА-->
     <div class="form_login mb-3">
         <form action="{{route('login')}}" method="post">

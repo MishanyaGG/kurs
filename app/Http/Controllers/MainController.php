@@ -10,8 +10,11 @@ class MainController extends Controller
     // Главная страница (ВХОД)
     public function index(){
 
-        // Вывод представления
-        return view('index',['key'=>false]);
+        return view('index');
+    }
+
+    public function index_errors(){
+        return view('index_erors');
     }
 
     public function login(Request $rq){
@@ -34,7 +37,7 @@ class MainController extends Controller
         if ($count == 0){
             $key = true;
 
-            return view('index',['key'=>$key]);
+            return redirect()->route('error');
         }
         else{
 

@@ -4,7 +4,7 @@
     Добавление сотрудника
 @endsection
 
-@section('login')
+@section('shapka_left')
 
     @foreach($db_l as $lico)
         {{$lico->fam}} {{$lico->im}} {{$lico->otch}}

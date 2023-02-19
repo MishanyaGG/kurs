@@ -18,6 +18,7 @@ session_start();
  -----------------------*/
 
 Route::get('/','MainController@index')->name('index');
+Route::get('/errors','MainController@index_errors')->name('error');
 
 /*-----------------------------------
  ОБРАБОТЧИК ГЛАВНОЙ СТРАНИЦЫ (ЛОГИН)
