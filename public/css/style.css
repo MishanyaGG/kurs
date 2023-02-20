@@ -26,23 +26,23 @@
 
 /*Параметры для кнопок шапки*/
 .btn_li{
-    display: flex;
-    margin-left: 10%;
+    display: flex; /*Группировка объектов - в одну строку*/
+    margin-left: 10%; /*Отсут слева*/
 }
 
 /*Параметры для ссылок ШАПКИ КНОПКИ*/
 .a_info{
-    margin-right: 10px;
+    margin-right: 10px; /*Отступ справа*/
 }
 
 /*ДОП. параметры дял ссылок ШАПКИ КНОПКИ*/
 .aish{
-    border-color: #6E0800;
+    border-color: #6E0800; /*Цвет границ*/
 }
 
 /*Параметры для ссылок ОСНОВНОГО МЕНЮ КНОПКИ*/
 .ai{
-    background: #89342DFF;
+    background: #89342DFF; /*Задний фон*/
 }
 
 /*Параметры для тела*/
@@ -53,12 +53,12 @@ body{
 
 /*Ширина scrollbar*/
 body::-webkit-scrollbar{
-    width: 10px;
+    width: 10px; /*Ширина объекта*/
 }
 
 /*Цвет дорожки*/
 body::-webkit-scrollbar-track{
-    background: #DD4C41;
+    background: #DD4C41; /*Задний фон*/
 }
 
 body::-webkit-scrollbar-thumb{
@@ -90,11 +90,16 @@ td{
 }
 
 /*----------------------
-        ТАБЛИЦА 1,2
+      ТАБЛИЦА 1,2,3
  -----------------------*/
 
 .main{
-    background: #6E0800;
+    background: #6E0800; /*Задний фон*/
+}
+
+/*Параметры для кнопки ЛИЧНЫЕ ЗАЯВКИ (DROPDOWN)*/
+.dropdown{
+    margin-right: 5px; /*Отступ справа*/
 }
 
 /*----------------------
@@ -144,57 +149,67 @@ td{
 
 /*Заголовок заявки*/
 .info{
-    display: flex;
-    color: white;
-    margin-top: 3%;
+    display: flex; /*Группировка объектов - в одну строку*/
+    color: white; /*Цвет объекта*/
+    margin-top: 3%; /*Отступ сверху*/
 }
 
 /*Параметры для левой части заголовка*/
 .sag{
-    margin-left: 10%;
-    margin-right: 50%;
+    margin-left: 10%; /*Отступ слева*/
+    margin-right: 50%; /*Отступ справа*/
 }
 
 /*Основной текст заявки*/
 .info_text{
-    margin-left: 10%;
-    margin-top: 3%;
-    font-size: 20px;
-    margin-right: 10%;
-    text-align: justify;
+    margin-left: 10%;  /*Отступ слева*/
+    margin-top: 3%; /*Отступ сверху*/
+    font-size: 20px; /*Размер текста*/
+    margin-right: 10%; /*Отступ справа*/
+    text-align: justify; /*Выравнивание текста - по ширине*/
 }
 
 /*Параметры для показа даты*/
 .date_info{
-    margin-right: 15%;
-    margin-top: 3%;
-    font-size: 20px;
-    text-align: right;
+    margin-right: 15%; /*Отступ справа*/
+    margin-top: 3%; /*Отступ сверху*/
+    font-size: 20px; /*Размер текста*/
+    text-align: right; /*Расположение текста - справа*/
 }
-
 
 /*Параметры для кнопки "ЗАВЕРШЕНИЕ ЗАЯВКИ"*/
 .btn_info{
-    text-align: center;
+    text-align: center; /*Расположение текста - справа*/
 }
 
 /*Параметры ИМЕННО дла кнопки "ЗАВЕРШЕНИЕ ЗАЯВКИ"*/
 .dg{
-    background: #6E0800;
+    background: #6E0800; /*Задний фон*/
 }
 
+/*----------------------
+      СОЗДАНИЕ ЗАЯВКИ
+ -----------------------*/
+
+/*Параметры для текста в СОЗДАНИИ ЗАЯВКИ "КРАТКАЯ ИНФОРМАЦИЯ..."*/
 .info_texarea{
-    border-radius: 10px;
-    border: none;
-    resize: none;
-    width: 100%;
+    border-radius: 10px; /*Округление границ*/
+    border: none; /*Параметры границы - НЕТУ*/
+    resize: none; /*Фиксированное поле ввода*/
+    width: 100%; /*Ширина*/
 }
 
+/*Параметры для кнопки в СОЗДАНИИ ЗАЯВКИ "Создать"*/
 .zp{
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 33%; /*Отступ слева*/
+    margin-right: 33%; /*Отступ Справа*/
 }
 
+/*----------------------
+    СОЗДАНИЕ СОТРУДНИКА
+ -----------------------*/
+
+/*Параметры для кнопки в СОЗДАНИИ СОТРУДНИКА "Создать"*/
 .man{
-    margin-left: 25%;
+    margin-left: 25%; /*Отступ слева*/
 }
