@@ -32,6 +32,8 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>Должность</th>
+            <th>Логин</th>
+            <th>Пароль</th>
         </tr>
         @foreach($db as $d)
         <tr>
@@ -39,7 +41,14 @@
             <td>{{$d->im}}</td>
             <td>{{$d->otch}}</td>
             <td>{{$d->title}}</td>
-            <td><a href="{{route('tb_two_del',$d->id)}}"><button type="button" class="btn btn-danger">Удалить сотрудника</button></a></td>
+            <td>{{$d->login}}</td>
+            @if($d->title != "Администратор")
+                <td>{{$d->password}}</td>
+                <td><a href="{{route('tb_two_del',$d->id)}}"><button type="button" class="btn btn-danger">Удалить сотрудника</button></a></td>
+            @else
+                <td>Пароль скрыт</td>
+                <td></td>
+            @endif
         </tr>
         @endforeach
     </table>

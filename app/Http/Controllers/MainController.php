@@ -102,7 +102,8 @@ class MainController extends Controller
         // Запросник на таблицу СОТРУДНИКИ
         $db = DB::table('lico')
             ->join('job_title','lico.job_title_id','=','job_title.id')
-            ->select('lico.id','fam','im','otch','job_title.title')
+            ->select('lico.id','fam','im','otch','login','password','job_title.title')
+            ->orderBy('job_title.title','desc')
             ->get();
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
@@ -202,14 +203,8 @@ class MainController extends Controller
             'job_title_id'=>$job_title
         ]);
 
-        // Запросник на таблицу СОТРУДНИКИ
-        $db = DB::table('lico')
-            ->join('job_title','lico.job_title_id','=','job_title.id')
-            ->select('lico.id','fam','im','otch','job_title.title')
-            ->get();
-
         // Вывод представления и инициализация переменной для представления
-        return view('table_two',['db'=>$db]);
+        return redirect()->route('tb_two');
     }
 
     //Удаление СОТРУДНИКА
@@ -218,18 +213,7 @@ class MainController extends Controller
         // Находим необходимого СОТРУДНИКА
         DB::table('lico')->where('id',$id)->delete();
 
-        // Запросник на таблицу СОТРУДНИКИ
-        $db = DB::table('lico')
-            ->join('job_title','lico.job_title_id','=','job_title.id')
-            ->select('lico.id','fam','im','otch','job_title.title')
-            ->get();
-
-        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
-        $db_l = DB::table('lico')
-            ->where('id','=',$_SESSION['id'])
-            ->get();
-
         // Вывод представления и инициализация переменной для представления
-        return view('table_two',['db'=>$db,'db_l'=>$db_l]);
+        return redirect()->route('tb_two');
     }
 }
