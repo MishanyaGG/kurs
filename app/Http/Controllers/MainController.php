@@ -52,15 +52,24 @@ class MainController extends Controller
     public function table_one(){
 
         // Получаем таблицу ЗАЯВКИ
-        $db_z = DB::table('zayavka')->get();
+        $db_z = DB::table('zayavka')
+            ->where('lico_id','=',$_SESSION['id'])
+            ->get();
+
+        $count = $db_z->count();
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
             ->get();
 
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
         // Вывод представления и инициализация переменной для представления
-        return view('table/table_one',['db'=>$db_z,'db_l'=>$db_l]);
+        return view('table/table_one',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
     //Страница ПОДРОБНАЯ ИНФОРМАЦИЯ О ЗАЯВКЕ
@@ -78,8 +87,13 @@ class MainController extends Controller
             ->where('id','=',$_SESSION['id'])
             ->get();
 
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
         // Вывод представления и инициализация переменной для представления
-        return view('info',['db'=>$db,'db_l'=>$db_l]);
+        return view('info',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
     // Таблица СОТРУДНИКИ
@@ -138,17 +152,8 @@ class MainController extends Controller
                 'date_start'=>$date_start,
                 'lico_id'=>$lico_id
             ]);
-
-        // Получаемм список ЗАЯВОК
-        $db = DB::table('zayavka')->get();
-
-        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
-        $db_l = DB::table('lico')
-            ->where('id','=',$_SESSION['id'])
-            ->get();
-
         // Вывод представления и инициализация переменной для представления
-        return view('table_one',['db'=>$db,'db_l'=>$db_l]);
+        return redirect()->route('tb_one');
     }
 
     // Форма добавления СОТРУДНИКА

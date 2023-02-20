@@ -22,8 +22,14 @@
 
 @section('main')
     <div class="btn_li">
-        <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger ai">Заявки</button></a>
-        <a class="a_info" href="{{route('tb_two')}}"><button type="button" class="btn btn-danger ai">Сотрудники</button></a>
+        @foreach($db_m as $d)
+            @if($d->title == "Администратор")
+                <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger ai">Заявки</button></a>
+                <a class="a_info" href="{{route('tb_two')}}"><button type="button" class="btn btn-danger ai">Сотрудники</button></a>
+            @else
+                <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger ai">Заявки</button></a>
+            @endif
+        @endforeach
     </div>
     @foreach($db as $d)
     <div class="info">
