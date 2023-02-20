@@ -23,7 +23,7 @@
 @section('main')
     <div class="btn_li">
         <a class="a_info" href="{{route('tb_all')}}"><button type="button" class="btn btn-danger ai">Все заявки</button></a>
-        <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger ai">Заявки</button></a>
+        <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger ai">Личные заявки</button></a>
         <a class="a_info" href="{{route('tb_two')}}"><button type="button" class="btn btn-danger main">Сотрудники</button></a>
     </div>
 

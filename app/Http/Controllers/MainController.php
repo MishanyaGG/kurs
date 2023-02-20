@@ -66,7 +66,7 @@ class MainController extends Controller
             ->get();
 
         // Вывод представления и инициализация переменной для представления
-        return view('table/table_one',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
+        return view('table/table_all',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
     // Таблица ЗАЯВКИ
