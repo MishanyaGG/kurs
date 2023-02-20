@@ -44,16 +44,16 @@
                 <a class="a_info" href="{{route('tb_two')}}"><button type="button" class="btn btn-danger ai">Сотрудники</button></a>
             @else
 
+                <a class="a_info" href="{{route('tb_all')}}"><button type="button" class="btn btn-danger ai">Все заявки</button></a>
+
                 <div class="dropdown">
-                    <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Все заявки</button>
+                    <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Личные заявки</button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Все заявки</a></li>
                             <li><a class="dropdown-item" href="#">Которые не закрыты</a></li>
                             <li><a class="dropdown-item" href="#">Которые закрыты</a></li>
                         </ul>
                 </div>
-
-                <a class="a_info" href="{{route('tb_one')}}"><button type="button" class="btn btn-danger main">Личные заявки</button></a>
             @endif
         @endforeach
     </div>
