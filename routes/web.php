@@ -27,13 +27,19 @@ Route::get('/errors','MainController@index_errors')->name('error');
 Route::post('/login','MainController@login')->name('login');
 
 /*----------------------
-        ТАБЛИЦА 1
+     ТАБЛИЦА ВСЕ ЗАЯВКИ
+ -----------------------*/
+
+Route::get('/tb_all','MainController@table_all')->name('tb_all');
+
+/*----------------------
+     ТАБЛИЦА ЗАЯВКИ
  -----------------------*/
 
 Route::get('/tb_one','MainController@table_one')->name('tb_one');
 
 /*----------------------
-        ТАБЛИЦА 2
+    ТАБЛИЦА СОТРУДНИКИ
  -----------------------*/
 
 Route::get('/tb_two','MainController@table_two')->name('tb_two');
