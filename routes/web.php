@@ -39,6 +39,8 @@ Route::get('/tb_all_done','MainController@table_all_done')->name('tb_all_done');
  -----------------------*/
 
 Route::get('/tb_one','MainController@table_one')->name('tb_one');
+Route::get('/tb_one_not_done','MainController@table_one_not_done')->name('tb_one_not_done');
+Route::get('/tb_one_done','MainController@table_one_done')->name('tb_one_done');
 
 /*----------------------
     ТАБЛИЦА СОТРУДНИКИ

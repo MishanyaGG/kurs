@@ -140,6 +140,55 @@ class MainController extends Controller
         return view('table/table_one',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
+    // Таблица ЗАЯВКИ НЕ СДЕЛАНЫ
+    public function table_one_not_done(){
+
+        // Получаем таблицу ЗАЯВКИ
+        $db_z = DB::table('zayavka')
+            ->where('lico_id','=',$_SESSION['id'])
+            ->where('status','=','not_done')
+            ->get();
+
+        $count = $db_z->count();
+
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Вывод представления и инициализация переменной для представления
+        return view('table/table_one',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
+    }
+
+     // Таблица ЗАЯВКИ СДЕЛАНЫ
+    public function table_one_done(){
+
+        // Получаем таблицу ЗАЯВКИ
+        $db_z = DB::table('zayavka')
+            ->where('lico_id','=',$_SESSION['id'])
+            ->where('status','=','done')
+            ->get();
+
+        $count = $db_z->count();
+
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Вывод представления и инициализация переменной для представления
+        return view('table/table_one',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
+    }
     //Страница ПОДРОБНАЯ ИНФОРМАЦИЯ О ЗАЯВКЕ
     public function info($id){
 
