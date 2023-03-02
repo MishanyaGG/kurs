@@ -34,9 +34,9 @@
                 <div class="dropdown">
                     <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Все заявки</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Все заявки</a></li>
-                            <li><a class="dropdown-item" href="#">Которые не закрыты</a></li>
-                            <li><a class="dropdown-item" href="#">Которые закрыты</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all')}}">Все заявки</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all_not_done')}}">Которые не закрыты</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all_done')}}">Которые закрыты</a></li>
                         </ul>
                 </div>
 
@@ -47,9 +47,9 @@
                 <div class="dropdown">
                     <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Все заявки</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Все заявки</a></li>
-                            <li><a class="dropdown-item" href="#">Которые не закрыты</a></li>
-                            <li><a class="dropdown-item" href="#">Которые закрыты</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all')}}">Все заявки</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all_not_done')}}">Которые не закрыты</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_all_done')}}">Которые закрыты</a></li>
                         </ul>
                 </div>
 

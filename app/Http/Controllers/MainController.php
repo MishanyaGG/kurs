@@ -48,9 +48,56 @@ class MainController extends Controller
         }
     }
 
+    // СТРАНИЦА ВСЕ ЗАЯВКИ
     public function table_all(){
-        // Получаем таблицу ЗАЯВКИ
+        // Получаем таблицу ЗАЯВКИ (ПРЕДСТАВЛЕНИЕ)
         $db_z = DB::table('tb_all')
+            ->get();
+
+        $count = $db_z->count();
+
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Вывод представления и инициализация переменной для представления
+        return view('table/table_all',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
+    }
+
+    // СТРАНИЦА ВСЕ ЗАЯВКИ НЕ ГОТОВЫ
+    public function table_all_not_done(){
+        // Получаем таблицу ЗАЯВКИ (ПРЕДСТАВЛЕНИЕ)
+        $db_z = DB::table('tb_all')
+            ->where('status','=','not_done')
+            ->get();
+
+        $count = $db_z->count();
+
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Вывод представления и инициализация переменной для представления
+        return view('table/table_all',['count'=>$count,'db'=>$db_z,'db_l'=>$db_l,'db_m'=>$db_m]);
+    }
+
+    // СТРАНИЦА ВСЕ ЗАЯВКИ ГОТОВЫ
+    public function table_all_done(){
+        // Получаем таблицу ЗАЯВКИ (ПРЕДСТАВЛЕНИЕ)
+        $db_z = DB::table('tb_all')
+            ->where('status','=','done')
             ->get();
 
         $count = $db_z->count();

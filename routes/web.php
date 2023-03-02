@@ -31,6 +31,8 @@ Route::post('/login','MainController@login')->name('login');
  -----------------------*/
 
 Route::get('/tb_all','MainController@table_all')->name('tb_all');
+Route::get('/tb_all_not_done','MainController@table_all_not_done')->name('tb_all_not_done');
+Route::get('/tb_all_done','MainController@table_all_done')->name('tb_all_done');
 
 /*----------------------
      ТАБЛИЦА ЗАЯВКИ
