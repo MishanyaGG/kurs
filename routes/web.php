@@ -69,3 +69,10 @@ Route::post('/CreateZap','MainController@create_zap_post')->name('CreateZap');
 
 Route::get('/CreateMan','MainController@create_man_get')->name('CreateMan');
 Route::post('/CreateMan','MainController@create_man_post')->name('CreateMan');
+
+/*------------------------------
+        Отчет по заявкам
+ -------------------------------*/
+
+Route::get('/otсhet','MainController@otсhet')->name('otсhet');
+Route::get('/otchet/etot_mecyac','MainController@etot_mesyac')->name('etot_mesyac');

@@ -333,4 +333,21 @@ class MainController extends Controller
         // Вывод представления и инициализация переменной для представления
         return redirect()->route('tb_two');
     }
+
+    public function otсhet(){
+
+        $db = DB::table('otchet')
+            ->get();
+
+        return view('otchet',['db'=>$db]);
+    }
+
+    public function etot_mesyac(){
+
+        $db = DB::table('date_start_column')
+            ->where('Month','=',date('m'))
+            ->get();
+
+        return view('otchet',['db'=>$db]);
+    }
 }
