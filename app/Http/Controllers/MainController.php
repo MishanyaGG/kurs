@@ -213,6 +213,10 @@ class MainController extends Controller
         return view('info',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
+    public function locked($id){
+
+    }
+
     // Таблица СОТРУДНИКИ
     public function table_two(){
 

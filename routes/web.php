@@ -55,6 +55,10 @@ Route::get('/tb_two/delete/{id?}','MainController@delete_man')->name('tb_two_del
 
 Route::get('/info/more/{id?}','MainController@info')->name('info');
 
+/*Закрытие заявки на странице ПОДРОБНОЕ ОПИСАНИЕ ЗАЯВКИ*/
+
+Route::get('/locked/{id?}','MainController@locked')->name('locked');
+
 /*------------------------------
      СТРАНИЦА СОЗДАНИЯ ЗАЯВКИ
  -------------------------------*/
