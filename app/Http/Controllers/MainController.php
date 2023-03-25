@@ -215,6 +215,14 @@ class MainController extends Controller
 
     public function locked($id){
 
+        $db = DB::table('zayavka')
+            ->where('id','=',$id)
+            ->update([
+                'status'=>'done',
+                'date_end'=>date('y-m-d')
+            ]);
+
+        return redirect()->route('tb_one');
     }
 
     // Таблица СОТРУДНИКИ

@@ -34,21 +34,27 @@
         @endforeach
     </div>
     @foreach($db as $d)
-    <div class="info">
-        <div class="sag"><h2>{{$d->name_zayavki}}</h2></div>
-        <div><h1>{{$d->fam}} {{$d->im}} {{$d->otch}}</h1></div>
-    </div>
+        <div class="info">
+            <div class="sag"><h2>{{$d->name_zayavki}}</h2></div>
+            <div><h1>{{$d->fam}} {{$d->im}} {{$d->otch}}</h1></div>
+        </div>
 
-    <div class="info_text">
-        {{$d->info}}
-    </div>
+        <div class="info_text">
+            {{$d->info}}
+        </div>
 
-    <div class="date_info">
-        {{$d->date_start}}
-    </div>
+        <div class="date_info">
+            Дата подачи {{$d->date_start}}
+        </div>
 
-    <div class="btn_info">
-        <button type="button" class="btn btn-danger dg">Завершить заявку</button>
-    </div>
+        @if($d->status != "done")
+            <div class="btn_info">
+                <a href="{{route('locked',$d->id)}}"><button type="button" class="btn btn-danger dg">Завершить заявку</button></a>
+            </div>
+        @else
+            <div class="date_info">
+                Дата завершения {{$d->date_end}}
+            </div>
+        @endif
     @endforeach
 @endsection
