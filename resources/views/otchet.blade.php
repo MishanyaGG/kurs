@@ -4,12 +4,40 @@
     Отчет о заявках
 @endsection
 
+@section('shapka_left')
+
+    @foreach($db_l as $lico)
+        {{$lico->fam}} {{$lico->im}} {{$lico->otch}}
+    @endforeach
+
+@endsection
+
+@section('bt-main')
+    <ul class="nav nav-pills">
+        @foreach($db_m as $d)
+            @if($d->title == "Администратор")
+                <li class="nav-item"><a class="a_info" href="{{route('CreateZap')}}"><button type="button" class="btn btn-danger ai aish">Создать запись</button></a></li>
+                <li class="nav-item"><a class="a_info" href="{{route('CreateMan')}}"><button type="button" class="btn btn-danger ai aish">Добавить сотрудника</button></a></li>
+                <li class="nav-item"><a class="a_info" href="{{route('otсhet')}}"><button type="button" class="btn btn-danger ai aish">Отчеты</button></a></li>
+            @else
+                <li class="nav-item"><a class="a_info" href="{{route('CreateZap')}}"><button type="button" class="btn btn-danger ai aish">Создать запись</button></a></li>
+            @endif
+        @endforeach
+        <li class="nav-item"><a class="a_info" href="{{route('index')}}"><button type="button" class="btn btn-danger ai aish">Выйти</button></a></li>
+    </ul>
+@endsection
+
 @section('main')
     <h1 align="center">Информация о всех заявках</h1>
 
-    <a href="{{route('etot_mesyac')}}"><button class="btn btn-danger ai">За этот месяц</button></a>
-    <a href="#"><button class="btn btn-danger ai">Которые закрыты</button></a>
-    <a href="#"><button class="btn btn-danger ai">Которые не закрыты</button></a>
+    <div class="btn_li">
+        <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger ai">За этот месяц</button></a>
+
+        <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые закрыты</button></a>
+
+        <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые не закрыты</button></a>
+
+    </div>
 
     <table class="table border-dark table-bordered">
         <tr>

@@ -351,7 +351,17 @@ class MainController extends Controller
         $db = DB::table('otchet')
             ->get();
 
-        return view('otchet',['db'=>$db]);
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 
     public function etot_mesyac(){
@@ -360,6 +370,16 @@ class MainController extends Controller
             ->where('Month','=',date('m'))
             ->get();
 
-        return view('otchet',['db'=>$db]);
+        // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+        $db_l = DB::table('lico')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        // Получаем представление Man
+        $db_m = DB::table('man')
+            ->where('id','=',$_SESSION['id'])
+            ->get();
+
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
     }
 }
