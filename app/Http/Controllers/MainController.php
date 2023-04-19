@@ -361,7 +361,7 @@ class MainController extends Controller
             ->where('id','=',$_SESSION['id'])
             ->get();
 
-        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>null]);
     }
 
     public function etot_mesyac(){
@@ -380,6 +380,6 @@ class MainController extends Controller
             ->where('id','=',$_SESSION['id'])
             ->get();
 
-        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m]);
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>'main']);
     }
 }

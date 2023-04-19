@@ -31,13 +31,17 @@
     <h1 align="center">Информация о всех заявках</h1>
 
     <div class="btn_li">
-        <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger ai">За этот месяц</button></a>
+        @if($main == 'main')
+            <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger main">За этот месяц</button></a>
+        @else
+            <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger ai">За этот месяц</button></a>
 
-        <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые закрыты</button></a>
-
-        <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые не закрыты</button></a>
+            <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые закрыты</button></a>
+        @endif
 
     </div>
+
+    @if(count($db)!=0)
 
     <table class="table border-dark table-bordered">
         <tr>
@@ -70,4 +74,7 @@
             </tr>
         @endforeach
     </table>
+    @else
+        <h1 align="center">Нет зявок</h1>
+    @endif
 @endsection
