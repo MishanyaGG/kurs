@@ -35,8 +35,6 @@
             <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger main">За этот месяц</button></a>
         @else
             <a class="a_info" href="{{route('etot_mesyac')}}"><button type="button" class="btn btn-danger ai">За этот месяц</button></a>
-
-            <a class="a_info" href="#"><button type="button" class="btn btn-danger ai">Которые закрыты</button></a>
         @endif
 
     </div>

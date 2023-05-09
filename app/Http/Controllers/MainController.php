@@ -366,8 +366,10 @@ class MainController extends Controller
 
     public function etot_mesyac(){
 
+        // Этот месяц подразуевается подача заявки в этом месяце или его закрытие
         $db = DB::table('date_start_column')
-            ->where('Month','=',date('m'))
+            ->where('month_start','=',date('m'))
+            ->orWhere('month_end','=',date('m'))
             ->get();
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
