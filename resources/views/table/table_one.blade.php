@@ -37,8 +37,8 @@
                     <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Личные заявки</button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('tb_one')}}">Все заявки</a></li>
-                            <li><a class="dropdown-item" href="{{route('tb_one_not_done')}}">Которые не сделаны</a></li>
-                            <li><a class="dropdown-item" href="{{route('tb_one_done')}}">Которые сделаны</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_one_not_done')}}">Не сделаны</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_one_done')}}">Сделаны</a></li>
                         </ul>
                 </div>
 
@@ -51,8 +51,8 @@
                     <button type="button" class="btn btn-danger dropdown-toggle main" data-bs-toggle="dropdown">Личные заявки</button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('tb_one')}}">Все заявки</a></li>
-                            <li><a class="dropdown-item" href="{{route('tb_one_not_done')}}">Которые не сделаны</a></li>
-                            <li><a class="dropdown-item" href="{{route('tb_one_done')}}">Которые сделаны</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_one_not_done')}}">Не сделаны</a></li>
+                            <li><a class="dropdown-item" href="{{route('tb_one_done')}}">Сделаны</a></li>
                         </ul>
                 </div>
             @endif
