@@ -62,6 +62,7 @@
     @if($count != 0)
     <table class="table border-dark table-bordered">
         <tr>
+            <th>№</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Название заявки</th>
@@ -71,6 +72,7 @@
         </tr>
         @foreach($db as $d)
             <tr>
+                <td><a class="tb" href="{{route('info',$d->id)}}">{{$d->id}}</a></td>
                 <td><a class="tb" href="{{route('info',$d->id)}}">{{$d->fam}}</a></td>
                 <td><a class="tb" href="{{route('info',$d->id)}}">{{$d->im}}</a></td>
                 <td><a class="tb" href="{{route('info',$d->id)}}">{{$d->name_zayavki}}</a></td>

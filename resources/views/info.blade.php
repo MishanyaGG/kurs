@@ -55,9 +55,13 @@
         </div>
 
         @if($d->status != "done")
-            <div class="btn_info">
-                <a href="{{route('locked',$d->id)}}"><button type="button" class="btn btn-danger dg">Завершить заявку</button></a>
-            </div>
+            @foreach($db_m as $d)
+                @if($d->title == 'Администратор')
+                    <div class="btn_info">
+                        <a href="{{route('locked',$d->id)}}"><button type="button" class="btn btn-danger dg">Завершить заявку</button></a>
+                    </div>
+                @endif
+            @endforeach
         @else
             <div class="date_info">
                 Дата завершения {{$d->date_end}}

@@ -30,6 +30,7 @@
 
     <table class="table border-dark table-bordered">
         <tr>
+            <th>№</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
@@ -39,6 +40,7 @@
         </tr>
         @foreach($db as $d)
         <tr>
+            <td>{{$d->id}}</td>
             <td>{{$d->fam}}</td>
             <td>{{$d->im}}</td>
             <td>{{$d->otch}}</td>
