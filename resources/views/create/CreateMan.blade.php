@@ -22,16 +22,36 @@
         </div>
     @endif
 
+    @if (isset($status))
+        <div class="alert alert-danger">
+            <ul>
+                <li>Такой логин уже существует</li>
+            </ul>
+        </div>
+    @endif
+
+
     <div class="form_login mb-3">
         <form action="{{route('CreateMan')}}" method="post">
             @csrf
             <h1>Добавить сотрудника</h1>
-            <input type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
-            <br>
-            <input type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
-            <br>
-            <input type="text" class="form-control" id="floatingInput" name="otch" placeholder="Отчество сотрудника" width="20px">
-            <br>
+            {{--     Занесение значений, которые были записаны до проверки логина       --}}
+            @if (isset($snach))
+                <input value="{{$snach['fam']}}" type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
+                <br>
+                <input value="{{$snach['im']}}" type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
+                <br>
+                <input value="{{$snach['otch']}}" type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
+                <br>
+            @else
+                <input type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
+                <br>
+                <input type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
+                <br>
+                <input type="text" class="form-control" id="floatingInput" name="otch" placeholder="Отчество сотрудника" width="20px">
+                <br>
+            @endif
+
             <select class="form-select" id="validationCustom04" name="job_title" required>
                 <option selected disabled value="">Должность сотрудника</option>
                 @foreach($db as $d)

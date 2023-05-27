@@ -322,6 +322,33 @@ class MainController extends Controller
         $log = $rq->input('log');
         $pass = $rq->input('pass');
 
+        // Проверка на уникальность ЛОГИНА
+        $prov = DB::table('lico')
+            ->where('login','=',$log)
+            ->get();
+
+        // Если логин СУЩЕСТВУЕТ
+        if (count($prov)!=0){
+
+            // Для заполнения некоторых полей формы
+            $snach = [
+              'fam'=>$fam,
+              'im'=>$im,
+              'otch'=>$otch,
+            ];
+
+            // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+            $db_l = DB::table('lico')
+                ->where('id','=',$_SESSION['id'])
+                ->get();
+
+            // Получаемм список ДОЛЖНОСТЕЙ
+            $db = DB::table('job_title')->get();
+
+            return view('create/CreateMan',['status'=>'log_error','snach'=>$snach,'db_l'=>$db_l,'db'=>$db]);
+        }
+
+
         // INSERT
         $db = DB::table('lico')->insert([
             'fam'=>$fam,
