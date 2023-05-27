@@ -1,6 +1,7 @@
 # Курсовая работа на тему "Учет установки и ремонта оборудования на предприятии"
+<div align="center"> <img src="https://sun9-77.userapi.com/impg/yd66QTPBTFUduniiee7CYXOZysjpl76Lv-IbPA/xdkPGhjQ8Zs.jpg?size=139x186&quality=96&sign=e6b214a95a49f897c66e2de3144619d2&type=album)" alt="Разработчик"> </div>
 
-Разработчик Титов Михаил 3-1 ИС - https://t.me/MischanyaTop \
+Разработчик Титов Михаил 3-1 ИС - [Профиль в Telegram](https://t.me/MischanyaTop)\
 Данный проект разрабатывается на фреймворвке ``Laravel``
 
 В данном проекте будет создана ИС, где минимально жизнеспособным продуктом будет являться - подача заявки на ремонт установку оборудования от пользователя.
@@ -8,16 +9,15 @@
 Будет использована БД - ``MySQL, PHP 8.1``\
 Помощник для построения сайта - ``Bootstrap-4``
 
-<h3>Ссылка на прототип в Figma</h3>
-> https://www.figma.com/file/Fk5XfqfMOL6FPdxhvlvqdH/Курсовая?node-id=61-550&t=lxBSk6IaWgA3AsPT-0
+[Ссылка на прототип в Figma](https://www.figma.com/file/Fk5XfqfMOL6FPdxhvlvqdH/Курсовая?node-id=61-550&t=lxBSk6IaWgA3AsPT-0)
 
-<h3>Документация к курсовой</h3>
-> https://drive.google.com/drive/u/0/folders/12gSdU4P4hF2d1JgcGTIkLqS3hj5nS-NQ
-
+[Документация к курсовой](https://drive.google.com/drive/u/0/folders/12gSdU4P4hF2d1JgcGTIkLqS3hj5nS-NQ)
+    
 # Развёртывание проекта
 
 Для развёртывания проекта я использовал портативную программную среду Open Server Panel.\
-<h3> Модули </h3>
+<h3>Модули </h3>
+
 > - HTTP : ``Apache_2.4-PHP_8.0-8.1+Nginx_1.23``
 > - PHP : ``PHP_8.1``
 > - MySql : ``MySQL-8.0-Win 10``
