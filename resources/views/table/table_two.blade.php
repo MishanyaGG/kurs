@@ -40,18 +40,28 @@
         </tr>
         @foreach($db as $d)
         <tr>
-            <td>{{$d->id}}</td>
-            <td>{{$d->fam}}</td>
-            <td>{{$d->im}}</td>
-            <td>{{$d->otch}}</td>
-            <td>{{$d->title}}</td>
-            <td>{{$d->login}}</td>
-            @if($d->title != "Администратор")
-                <td>{{$d->password}}</td>
-                <td><a href="{{route('tb_two_del',$d->id)}}"><button type="button" class="btn btn-danger">Удалить сотрудника</button></a></td>
+            @if ($d->id == $_SESSION['id'])
+                <td><u><strong>{{$d->id}}</strong></u></td>
+                <td><u><strong>{{$d->fam}}</strong></u></td>
+                <td><u><strong>{{$d->im}}</strong></u></td>
+                <td><u><strong>{{$d->otch}}</strong></u></td>
+                <td><u><strong>{{$d->title}}</strong></u></td>
+                <td><u><strong>{{$d->login}}</strong></u></td>
+                <td><u><strong>{{$d->password}}</strong></u></td>
             @else
-                <td>Пароль скрыт</td>
-                <td></td>
+                <td>{{$d->id}}</td>
+                <td>{{$d->fam}}</td>
+                <td>{{$d->im}}</td>
+                <td>{{$d->otch}}</td>
+                <td>{{$d->title}}</td>
+                <td>{{$d->login}}</td>
+                @if($d->title != "Администратор")
+                    <td>{{$d->password}}</td>
+                    <td><a href="{{route('tb_two_del',$d->id)}}"><button type="button" class="btn btn-danger">Удалить сотрудника</button></a></td>
+                @else
+                    <td>Пароль скрыт</td>
+                    <td></td>
+               @endif
             @endif
         </tr>
         @endforeach
