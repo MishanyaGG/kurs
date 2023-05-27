@@ -1,23 +1,41 @@
-# Ссылка на прототип в Figma
+# Курсовая работа на тему "Учет установки и ремонта оборудования на предприятии"
 
-https://www.figma.com/file/Fk5XfqfMOL6FPdxhvlvqdH/Курсовая?node-id=61-550&t=lxBSk6IaWgA3AsPT-0
+Разработчик Титов Михаил 3-1 ИС - https://t.me/MischanyaTop \
+Данный проект разрабатывается на фреймворвке ``Laravel``
 
-# Словарь БД
+В данном проекте будет создана ИС, где минимально жизнеспособным продуктом будет являться - подача заявки на ремонт установку оборудования от пользователя.
 
-https://docs.google.com/document/d/1YvmZthlyV3HT5_G5nNWtPZX48hiIqWu5/edit
+Будет использована БД - ``MySQL, PHP 8.1``\
+Помощник для построения сайта - ``Bootstrap-4``
 
-# ERD
+<h3>Ссылка на прототип в Figma</h3>
+> https://www.figma.com/file/Fk5XfqfMOL6FPdxhvlvqdH/Курсовая?node-id=61-550&t=lxBSk6IaWgA3AsPT-0
 
-https://drive.google.com/file/d/1ugkmoyjDB5H-dwaeBnSbWSCcVcDn7mIu/view?usp=share_link
+<h3>Документация к курсовой</h3>
+> https://drive.google.com/drive/u/0/folders/12gSdU4P4hF2d1JgcGTIkLqS3hj5nS-NQ
 
-# Use Case diagram
+# Развёртывание проекта
 
-https://drive.google.com/file/d/1_KgewzyPzLXoDk4c0kM9l-93XgoJZWia/view?usp=share_link
+Для развёртывания проекта я использовал портативную программную среду Open Server Panel.\
+<h3> Модули </h3>
+> - HTTP : ``Apache_2.4-PHP_8.0-8.1+Nginx_1.23``
+> - PHP : ``PHP_8.1``
+> - MySql : ``MySQL-8.0-Win 10``
 
-# Методическиие указания от преподавателя
+Загруженный проект перекидываем в папку ``domains``. Необходимо будет переименовать проект
 
-https://docs.google.com/document/d/11a45IftjU-TpqjNdTZVYcnYbKHbrDPBi/edit?usp=share_link&ouid=109650463715893816307&rtpof=true&sd=true
+В проекте будет находится файл ``dump.sql``, переходим ``Дополнительно->PhpMyAdmin``. Вход учетную запись может быть двух вариантов:
+>> Логин ``root``  
+> Пароль ``root`` 
+>
+>>Логин ``root``  
+> Без пароля
 
-# Ссылка на проект в Git
+Необходимо создать базу данных - ``kurs``. После этого перейдя в неё на верхней панели выбрать ``Импорт`` и добавить туда ``dump.sql``. После импорта мы готовы запускать проект 
 
-https://github.com/MishanyaGG/kurs
+Запускаем программную среду и переходим ``Дополнительно->Консоль`` и прописываем
+```composer log
+cd domains/Имя_Заданное_Проекту
+php artisan serve
+```
+После этого переходим по URL который будет вам выдан
