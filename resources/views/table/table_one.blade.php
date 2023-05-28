@@ -87,4 +87,10 @@
     @else
         <h1 align="center">Нет зявок</h1>
     @endif
+
+    @if ($count > 5)
+        <div align="center">
+            {{$db->links()}}
+        </div>
+    @endif
 @endsection

@@ -55,8 +55,8 @@
         </div>
 
         @if($d->status != "done")
-            @foreach($db_m as $d)
-                @if($d->title == 'Администратор')
+            @foreach($db_m as $dm)
+                @if($dm->title == 'Администратор')
                     <div class="btn_info">
                         <a href="{{route('locked',$d->id)}}"><button type="button" class="btn btn-danger dg">Завершить заявку</button></a>
                     </div>

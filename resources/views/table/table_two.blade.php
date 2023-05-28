@@ -66,4 +66,10 @@
         </tr>
         @endforeach
     </table>
+
+    @if($count>6)
+        <div align="center">
+            {{$db->links()}}
+        </div>
+    @endif
 @endsection

@@ -56,6 +56,11 @@ class MainController extends Controller
 
         $count = $db_z->count();
 
+        // Параметры для ПАГИНАЦИИ
+        if($count > 5)
+            $db_z = DB::table('tb_all')
+            ->paginate(5);
+
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
@@ -78,6 +83,12 @@ class MainController extends Controller
             ->get();
 
         $count = $db_z->count();
+
+        // Параметры для ПАГИНАЦИИ
+        if($count > 5)
+            $db_z = DB::table('tb_all')
+            ->where('status','=','not_done')
+            ->paginate(5);
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
@@ -102,6 +113,12 @@ class MainController extends Controller
 
         $count = $db_z->count();
 
+        if($count > 5)
+            // Получаем таблицу ЗАЯВКИ (ПРЕДСТАВЛЕНИЕ)
+            $db_z = DB::table('tb_all')
+            ->where('status','=','done')
+            ->paginate(5);
+
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
@@ -125,6 +142,11 @@ class MainController extends Controller
             ->get();
 
         $count = $db_z->count();
+
+        if($count > 5 )
+            $db_z = DB::table('zayavka')
+            ->where('lico_id','=',$_SESSION['id'])
+            ->paginate(5);
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
@@ -235,13 +257,22 @@ class MainController extends Controller
             ->orderBy('job_title.title','desc')
             ->get();
 
+        $count = count($db);
+
+        if($count > 6)
+            $db = DB::table('lico')
+            ->join('job_title','lico.job_title_id','=','job_title.id')
+            ->select('lico.id','fam','im','otch','login','password','job_title.title')
+            ->orderBy('job_title.title','desc')
+            ->paginate(6);
+
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
             ->get();
 
         // Вывод представления и инициализация переменной для представления
-        return view('table/table_two',['db'=>$db,'db_l'=>$db_l]);
+        return view('table/table_two',['db'=>$db,'db_l'=>$db_l,'count'=>$count]);
     }
 
     // Страница СОЗДАНИЕ ЗАПИСИ (GET)
