@@ -409,6 +409,12 @@ class MainController extends Controller
         $db = DB::table('otchet')
             ->get();
 
+        $count = count($db);
+
+        if($count > 6)
+            $db = DB::table('otchet')
+                ->paginate(6);
+
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
@@ -419,7 +425,7 @@ class MainController extends Controller
             ->where('id','=',$_SESSION['id'])
             ->get();
 
-        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>null]);
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>null,'count'=>$count]);
     }
 
     public function etot_mesyac(){
@@ -430,6 +436,14 @@ class MainController extends Controller
             ->orWhere('month_end','=',date('m'))
             ->get();
 
+        $count = count($db);
+
+        if($count > 6)
+            $db = DB::table('date_start_column')
+            ->where('month_start','=',date('m'))
+            ->orWhere('month_end','=',date('m'))
+            ->paginate(6);
+
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
             ->where('id','=',$_SESSION['id'])
@@ -440,6 +454,6 @@ class MainController extends Controller
             ->where('id','=',$_SESSION['id'])
             ->get();
 
-        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>'main']);
+        return view('otchet',['db'=>$db,'db_l'=>$db_l,'db_m'=>$db_m,'main'=>'main','count'=>$count]);
     }
 }
