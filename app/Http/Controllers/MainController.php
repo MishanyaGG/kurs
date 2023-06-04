@@ -10,6 +10,9 @@ class MainController extends Controller
     // Главная страница (ВХОД)
     public function index(){
 
+        // Для работы с СИСТЕМНОЙ учётной записью ROOT
+        $_SESSION['login'] = null;
+
         return view('index');
     }
 
@@ -26,6 +29,13 @@ class MainController extends Controller
            'login'=>'required',
            'pass'=>'required'
         ]);
+
+        // Если зашли под ROOT
+        if($login == $_SESSION['root']['login']){
+            $_SESSION['login'] = $_SESSION['root']['login'];
+            return redirect()->route('tb_two');
+        }
+
 
         $db = DB::table('login')
             ->where('login','=',$login)
@@ -261,10 +271,33 @@ class MainController extends Controller
 
         if($count > 6)
             $db = DB::table('lico')
-            ->join('job_title','lico.job_title_id','=','job_title.id')
-            ->select('lico.id','fam','im','otch','login','password','job_title.title')
-            ->orderBy('job_title.title','desc')
-            ->paginate(6);
+                ->join('job_title','lico.job_title_id','=','job_title.id')
+                ->select('lico.id','fam','im','otch','login','password','job_title.title')
+                ->orderBy('job_title.title','desc')
+                ->paginate(6);
+
+        // Если зашли под ROOT
+        if(isset($_SESSION['login'])){
+
+            // Запросник на таблицу СОТРУДНИКИ
+            $db = DB::table('lico')
+                ->join('job_title','lico.job_title_id','=','job_title.id')
+                ->select('lico.id','fam','im','otch','login','password','job_title.title')
+                ->orderBy('job_title.title','desc')
+                ->get();
+
+            $count = count($db);
+
+            if($count > 6)
+                $db = DB::table('lico')
+                    ->join('job_title','lico.job_title_id','=','job_title.id')
+                    ->select('lico.id','fam','im','otch','login','password','job_title.title')
+                    ->orderBy('job_title.title','desc')
+                    ->paginate(6);
+
+            return view('root',['db'=>$db,'count'=>$count]);
+        }
+
 
         // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
         $db_l = DB::table('lico')
@@ -352,6 +385,27 @@ class MainController extends Controller
         $job_title = $rq->input('job_title');
         $log = $rq->input('log');
         $pass = $rq->input('pass');
+
+        // Проверка логина на ROOT
+        if($log == $_SESSION['root']['login']){
+
+            // Для заполнения некоторых полей формы
+            $snach = [
+              'fam'=>$fam,
+              'im'=>$im,
+              'otch'=>$otch,
+            ];
+
+            // Получаемм список ДОЛЖНОСТЕЙ
+            $db = DB::table('job_title')->get();
+
+            // Получаем таблицу ПОЛЬЗОВАТЕЛЬ
+            $db_l = DB::table('lico')
+                ->where('id','=',$_SESSION['id'])
+                ->get();
+
+            return view('create/CreateMan',['status'=>'log_error_root','snach'=>$snach,'db_l'=>$db_l,'db'=>$db]);
+        }
 
         // Проверка на уникальность ЛОГИНА
         $prov = DB::table('lico')
