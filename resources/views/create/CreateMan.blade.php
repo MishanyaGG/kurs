@@ -39,9 +39,9 @@
             @if (isset($snach))
                 <input value="{{$snach['fam']}}" type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
                 <br>
-                <input value="{{$snach['im']}}" type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
+                <input value="{{$snach['im']}}" type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
                 <br>
-                <input value="{{$snach['otch']}}" type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
+                <input value="{{$snach['otch']}}" type="text" class="form-control" id="floatingInput" name="otch" placeholder="Отчество сотрудника" width="20px">
                 <br>
             @else
                 <input type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
