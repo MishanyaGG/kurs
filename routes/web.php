@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 session_start();
+
+
+// СУПЕР-ПОЛЬЗОВАТЕЛЬ
+$_SESSION['root'] = [
+  'login'=>'root',
+  'pass'=>'root'
+];
+
 /*----------------------
   ГЛАВНАЯ СТРАНИЦА(ЛОГИН)
  -----------------------*/

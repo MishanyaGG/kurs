@@ -6,13 +6,23 @@
 
 @section('shapka_left')
 
-    @foreach($db_l as $lico)
-        {{$lico->fam}} {{$lico->im}} {{$lico->otch}}
-    @endforeach
+    {{--  Если не зашли под ROOT  --}}
+    @if(!isset($_SESSION['login']))
+        @foreach($db_l as $lico)
+            {{$lico->fam}} {{$lico->im}} {{$lico->otch}}
+        @endforeach
+    @endif
 
 @endsection
 
 @section('main')
+
+    {{--  Если зашли под ROOT  --}}
+    @if (isset($_SESSION['login']))
+        <a href="{{route('tb_two')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4">Назад</span>
+        </a>
+    @endif
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -23,11 +33,22 @@
     @endif
 
     @if (isset($status))
-        <div class="alert alert-danger">
-            <ul>
-                <li>Такой логин уже существует</li>
-            </ul>
-        </div>
+        @if($status == 'log_error')
+            <div class="alert alert-danger">
+               <ul>
+                    <li>Такой логин уже существует</li>
+                </ul>
+            </div>
+        @endif
+
+        @if ($status == 'log_error_root')
+            <div class="alert alert-danger">
+               <ul>
+                    <li>Такой логин занят системой</li>
+                </ul>
+            </div>
+        @endif
+
     @endif
 
 
@@ -39,9 +60,15 @@
             @if (isset($snach))
                 <input value="{{$snach['fam']}}" type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
                 <br>
+<<<<<<< HEAD
                 <input value="{{$snach['im']}}" type="text" class="form-control" id="floatingInput" name="im" placeholder="Имя сотрудника" width="20px">
                 <br>
                 <input value="{{$snach['otch']}}" type="text" class="form-control" id="floatingInput" name="otch" placeholder="Отчество сотрудника" width="20px">
+=======
+                <input value="{{$snach['im']}}" type="text" class="form-control" id="floatingInput" name="im" placeholder="Фамилия сотрудника" width="20px">
+                <br>
+                <input value="{{$snach['otch']}}" type="text" class="form-control" id="floatingInput" name="otch" placeholder="Имя сотрудника" width="20px">
+>>>>>>> Edit
                 <br>
             @else
                 <input type="text" class="form-control" id="floatingInput" name="fam" placeholder="Фамилия сотрудника" width="20px">
